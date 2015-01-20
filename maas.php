@@ -2,19 +2,19 @@
 
 $mssock = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP); 
 if($mssock === FALSE) { 
-	echo 'socket_create failed: '.socket_strerror(socket_last_error())."\n";
+	die('socket_create failed: '.socket_strerror(socket_last_error())."\n");
 }
 if(!socket_bind($mssock, "0.0.0.0", 20810)) {
 	socket_close($mssock);
-	echo 'socket_bind failed: '.socket_strerror(socket_last_error())."\n";
+	die('socket_bind failed: '.socket_strerror(socket_last_error())."\n");
 }
 $assock = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP); 
 if($assock === FALSE) { 
-	echo 'socket_create failed: '.socket_strerror(socket_last_error())."\n";
+	die('socket_create failed: '.socket_strerror(socket_last_error())."\n");
 }
 if(!socket_bind($assock, "0.0.0.0", 20800)) {
 	socket_close($assock);
-	echo 'socket_bind failed: '.socket_strerror(socket_last_error())."\n";
+	die('socket_bind failed: '.socket_strerror(socket_last_error())."\n");
 }
 $outsock = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP); 
 
